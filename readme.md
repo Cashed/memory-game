@@ -10,8 +10,9 @@ You're going to create a Javascript memory game on a subject of your choice(web 
 * If the user matches all the cards, display a congratulations message
 * A reset button which will restart the game and reset the cards
 * Style it.  Make it look nice.
-* Deploy it to Github Pages.
-* Submit the link.
+* Deploy it to Surge.
+* Add a link to your deployed app to the readme.md file.
+* Submit a link to your github repo
 
 ###Bonus Features
 * Add a card-flipping animation when the user clicks a card
