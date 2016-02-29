@@ -1,0 +1,84 @@
+body {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Special Elite', cursive;
+}
+
+.score {
+  margin-left: 5%;
+  width: 5%;
+  height: 50px;
+  border-left: 120px solid gray;
+  border-right: 120px solid gray;
+  text-align: center;
+  font-weight: 600;
+  font-size: 38pt;
+}
+
+.table {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 45%;
+  margin: 0 auto;
+}
+
+.card {
+  width: 21%;
+  margin: 2%;
+}
+
+img {
+  width: 100%;
+}
+
+.timer {
+  margin-right: 5%;
+  width: 5%;
+  height: 50px;
+  border-left: 120px solid gray;
+  border-right: 120px solid gray;
+  text-align: center;
+  font-weight: 600;
+  font-size: 38pt;
+}
+
+.game-over {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: rgba(20, 20, 20, .9);
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+}
+
+button {
+  width: 350px;
+  height: 100px;
+  font-size: 36pt;
+  font-weight: 600;
+  outline: none;
+}
+
+button:hover {
+  background-color: #808080;
+}
+
+h1 {
+  color: white;
+  font-size: 72pt;
+  font-weight: 400;
+}
+
+h2 {
+  color: white;
+  font-size: 48pt;
+  font-weight: 400;
+  margin: 10px;
+}
