@@ -1,5 +1,5 @@
 'use strict';
-(function(){
+(function() {
   var countDown;
   var timeLoss;
   var scoreIncrementer;
@@ -9,13 +9,12 @@
   var endGame = document.getElementsByClassName('game-over')[0];
   var restart = document.getElementsByTagName('button')[0];
 
-  restart.addEventListener('click', dealDeck);
-
   function dealDeck() {
     var card = document.getElementsByClassName('card');
     var pics = ['images/100.jpg', 'images/101.jpg', 'images/102.jpg', 'images/103.jpg', 'images/104.jpg', 'images/105.jpg', 'images/106.jpg', 'images/107.jpg', 'images/100.jpg', 'images/101.jpg', 'images/102.jpg', 'images/103.jpg', 'images/104.jpg', 'images/105.jpg', 'images/106.jpg', 'images/107.jpg'];
+
     timeLoss = 59;
-    scoreIncrementer = 1;
+    scoreIncrementer = 0;
 
     endGame.style.display = 'none';
 
@@ -49,11 +48,10 @@
       if (flippedCards[0].querySelector('.front').src === flippedCards[1].querySelector('.front').src) {
         flippedCards = [];
 
-        score.innerText = '0' + scoreIncrementer;
+        score.innerText = '0' + ++scoreIncrementer;
         if (scoreIncrementer === 8) {
           finalize();
         }
-        scoreIncrementer++;
       }
       else {
         setTimeout(flipBack, 1500);
@@ -118,4 +116,5 @@
 
   dealDeck();
 
+  restart.addEventListener('click', dealDeck);
 })();

@@ -7,12 +7,25 @@ body {
   font-family: 'Special Elite', cursive;
 }
 
+.responsive-border-center {
+  width: 2%;
+  height: 50px;
+  background-color: gray;
+  margin: 0 1%;
+}
+
+.responsive-border-back {
+  width: 5%;
+  height: 50px;
+  background-color: gray;
+  margin: 0 1%;
+  padding-left: 3%;
+}
+
 .score {
   margin-left: 5%;
   width: 5%;
   height: 50px;
-  border-left: 120px solid gray;
-  border-right: 120px solid gray;
   text-align: center;
   font-weight: 600;
   font-size: 38pt;
@@ -39,8 +52,6 @@ img {
   margin-right: 5%;
   width: 5%;
   height: 50px;
-  border-left: 120px solid gray;
-  border-right: 120px solid gray;
   text-align: center;
   font-weight: 600;
   font-size: 38pt;
