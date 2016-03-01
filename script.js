@@ -13,8 +13,9 @@
     var card = document.getElementsByClassName('card');
     var pics = ["url('images/100.jpg')", "url('images/101.jpg')", "url('images/102.jpg')", "url('images/103.jpg')", "url('images/104.jpg')", "url('images/105.jpg')", "url('images/106.jpg')", "url('images/107.jpg')", "url('images/100.jpg')", "url('images/101.jpg')", "url('images/102.jpg')", "url('images/103.jpg')", "url('images/104.jpg')", "url('images/105.jpg')", "url('images/106.jpg')", "url('images/107.jpg')"];
 
-    timeLoss = 59;
+    timeLoss = 9;
     scoreIncrementer = 0;
+    flippedCards = [];
 
     endGame.style.display = 'none';
 
