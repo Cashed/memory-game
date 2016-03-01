@@ -11,7 +11,7 @@
 
   function dealDeck() {
     var card = document.getElementsByClassName('card');
-    var pics = ['images/100.jpg', 'images/101.jpg', 'images/102.jpg', 'images/103.jpg', 'images/104.jpg', 'images/105.jpg', 'images/106.jpg', 'images/107.jpg', 'images/100.jpg', 'images/101.jpg', 'images/102.jpg', 'images/103.jpg', 'images/104.jpg', 'images/105.jpg', 'images/106.jpg', 'images/107.jpg'];
+    var pics = ["url('images/100.jpg')", "url('images/101.jpg')", "url('images/102.jpg')", "url('images/103.jpg')", "url('images/104.jpg')", "url('images/105.jpg')", "url('images/106.jpg')", "url('images/107.jpg')", "url('images/100.jpg')", "url('images/101.jpg')", "url('images/102.jpg')", "url('images/103.jpg')", "url('images/104.jpg')", "url('images/105.jpg')", "url('images/106.jpg')", "url('images/107.jpg')"];
 
     timeLoss = 59;
     scoreIncrementer = 0;
@@ -21,21 +21,20 @@
     shuffle(pics);
 
     for (var i = 0; i < card.length; i++) {
-      card[i].querySelector('.front').src = pics[i];
-      card[i].querySelector('.front').style.display = 'none';
-      card[i].querySelector('.back').style.display = 'inline-block';
+      if(card[i].classList.contains('flipped')) {
+        card[i].classList.toggle('flipped');
+      }
+      card[i].querySelector('.back').style.backgroundImage = pics[i];
       card[i].addEventListener('click', flip);
     }
-
     score.innerText = '00';
 
     startTimer();
   }
 
   function flip() {
-    if (this.querySelector('.front').style.display === 'none' && flippedCards.length < 2) {
-      this.querySelector('.front').style.display = 'inline-block';
-      this.querySelector('.back').style.display = 'none';
+    if (!this.classList.contains('flipped') && flippedCards.length < 2) {
+      this.classList.toggle('flipped');
 
       flippedCards.push(this);
 
@@ -45,7 +44,7 @@
 
   function checkMatch() {
     if (flippedCards.length === 2) {
-      if (flippedCards[0].querySelector('.front').src === flippedCards[1].querySelector('.front').src) {
+      if (flippedCards[0].querySelector('.back').style.backgroundImage === flippedCards[1].querySelector('.back').style.backgroundImage) {
         flippedCards = [];
 
         score.innerText = '0' + ++scoreIncrementer;
@@ -60,11 +59,8 @@
   }
 
   function flipBack() {
-    flippedCards[0].querySelector('.front').style.display = 'none';
-    flippedCards[1].querySelector('.front').style.display = 'none';
-
-    flippedCards[0].querySelector('.back').style.display = 'inline-block';
-    flippedCards[1].querySelector('.back').style.display = 'inline-block';
+    flippedCards[0].classList.toggle('flipped');
+    flippedCards[1].classList.toggle('flipped');
 
     flippedCards = [];
   }

@@ -7,6 +7,14 @@ body {
   font-family: 'Special Elite', cursive;
 }
 
+.container {
+  width: 21%;
+  margin: 2%;
+  height: 180px;
+  position: relative;
+  perspective: 800px;
+}
+
 .responsive-border-center {
   width: 2%;
   height: 50px;
@@ -40,12 +48,37 @@ body {
 }
 
 .card {
-  width: 21%;
-  margin: 2%;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  transform-style: preserve-3d;
+  transition: transform 1s;
 }
 
-img {
+.card.flipped {
+  transform: rotateY(180deg);
+}
+
+.card div {
+  margin: 0;
+  display: block;
+  position: absolute;
   width: 100%;
+  height: 100%;
+  backface-visibility: visible;
+}
+
+.card .front {
+  background: url('../images/back.jpg');
+  background-size: cover;
+  background-position: center;
+}
+
+.card .back {
+  background: url('#');
+  background-size: cover;
+  background-position: center;
+  transform: rotateY(180deg);
 }
 
 .timer {
@@ -67,6 +100,7 @@ img {
   top: 0;
   bottom: 0;
   width: 100%;
+  z-index: 1;
 }
 
 button {
