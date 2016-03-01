@@ -3,11 +3,10 @@
   var countDown;
   var timeLoss;
   var scoreIncrementer;
-  var flippedCards = [];
+  var flippedCards;
   var score = document.getElementsByClassName('score')[0];
   var timer = document.getElementsByClassName('timer')[0];
   var endGame = document.getElementsByClassName('game-over')[0];
-  var restart = document.getElementsByTagName('button')[0];
 
   function dealDeck() {
     var card = document.getElementsByClassName('card');
@@ -39,23 +38,20 @@
 
       flippedCards.push(this);
 
-      checkMatch();
+      if (flippedCards.length === 2) {
+        checkMatch();
+      }
     }
   }
 
   function checkMatch() {
-    if (flippedCards.length === 2) {
-      if (flippedCards[0].querySelector('.back').style.backgroundImage === flippedCards[1].querySelector('.back').style.backgroundImage) {
-        flippedCards = [];
+    if (flippedCards[0].querySelector('.back').style.backgroundImage === flippedCards[1].querySelector('.back').style.backgroundImage) {
+      flippedCards = [];
 
-        score.innerText = '0' + ++scoreIncrementer;
-        if (scoreIncrementer === 8) {
-          finalize();
-        }
-      }
-      else {
-        setTimeout(flipBack, 1500);
-      }
+      score.innerText = '0' + ++scoreIncrementer;
+    }
+    else {
+      setTimeout(flipBack, 1500);
     }
   }
 
@@ -77,19 +73,24 @@
       clearInterval(countDown);
       finalize();
     }
-    else if (timeLoss < 10) {
+    if (timeLoss < 10) {
       timer.innerText = '0:0' + timeLoss;
     }
-    else {
+    if (timeLoss >= 10) {
       timer.innerText = '0:' + timeLoss;
+    }
+    if (scoreIncrementer === 8){
+      clearInterval(countDown);
+      finalize();
     }
     timeLoss--;
   }
 
   function finalize() {
-    endGame.style.display = 'flex';
+    var restart = document.getElementsByTagName('button')[0];
+    restart.addEventListener('click', dealDeck);
 
-    clearInterval(countDown);
+    endGame.style.display = 'flex';
 
     if (scoreIncrementer === 8) {
       endGame.querySelector('h1').innerText = 'you win';
@@ -112,6 +113,4 @@
   }
 
   dealDeck();
-
-  restart.addEventListener('click', dealDeck);
 })();
